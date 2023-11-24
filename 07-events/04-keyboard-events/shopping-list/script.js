@@ -3,9 +3,11 @@ const itemInput = document.querySelector('#item-input')
 const onKeyPress = (e) => {
   console.log(e.type)
 }
+
 const onKeyUp = (e) => {
   console.log(e.type)
 }
+
 const onKeyDown = (e) => {
   // key
   // if (e.key === 'Enter') {

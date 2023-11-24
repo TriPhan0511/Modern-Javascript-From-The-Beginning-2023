@@ -1,32 +1,33 @@
-// const itemInput = document.getElementById('item-input');
-// const priorityInput = document.getElementById('priority-input');
-// const checkbox = document.getElementById('checkbox');
-// const heading = document.querySelector('h1');
+const itemInput = document.getElementById('item-input')
+const priorityInput = document.getElementById('priority-input')
+const checkbox = document.getElementById('checkbox')
+const heading = document.querySelector('h1')
 
-// function onInput(e) {
-//   heading.textContent = e.target.value;
-// }
+function onInput(e) {
+  heading.textContent = e.target.value
+}
 
-// function onChecked(e) {
-//   const isChecked = e.target.checked;
-//   heading.textContent = isChecked ? 'Checked' : 'Not Checked';
-// }
+function onChecked(e) {
+  heading.textContent = e.target.checked ? 'Checked' : 'Not Checked'
+}
 
-// function onFocus() {
-//   console.log('Input is focused');
-//   itemInput.style.outlineStyle = 'solid';
-//   itemInput.style.outlineWidth = '1px';
-//   itemInput.style.outlineColor = 'red';
-// }
+function onFocus(e) {
+  console.log('Input is focused')
+  e.target.style.outline = '1px solid green'
+  //   itemInput.style.outline = '1px solid green'
+}
 
-// function onBlur() {
-//   console.log('Input is not focused');
-//   itemInput.style.outlineStyle = 'none';
-// }
+function onBlur(e) {
+  console.log('Input is not focused')
+  e.target.style.outline = 'none'
+  // itemInput.style.outline = 'none'
+  //   e.target.style.outlineStyle = 'none'
+}
 
-// // input, change, focus and blur events
-// itemInput.addEventListener('input', onInput);
-// priorityInput.addEventListener('change', onInput);
-// checkbox.addEventListener('input', onChecked);
-// itemInput.addEventListener('focus', onFocus);
-// itemInput.addEventListener('blur', onBlur);
+itemInput.addEventListener('input', onInput) // Text Input
+priorityInput.addEventListener('input', onInput) // Select Input
+// priorityInput.addEventListener('change', onInput) // Select Input
+checkbox.addEventListener('input', onChecked) // Checkbox Input
+
+itemInput.addEventListener('focus', onFocus)
+itemInput.addEventListener('blur', onBlur)
