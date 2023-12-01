@@ -32,5 +32,3 @@ function getPost() {
 }
 
 createPost({ title: 'Post Three', body: 'This is post three' }, getPost)
-
-xhr
