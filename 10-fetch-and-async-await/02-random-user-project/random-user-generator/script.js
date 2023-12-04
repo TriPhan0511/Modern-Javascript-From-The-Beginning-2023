@@ -1,10 +1,24 @@
 function fetchUser() {
   toggleSpinner()
-  fetch('https://random-data-api.com/api/v2/users')
-    .then((res) => res.json())
+  fetch('https://random-data-api.com/api/v2/users2')
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Request Failed.')
+      }
+      return res.json()
+    })
     .then((user) => {
       toggleSpinner()
       createElements(user)
+    })
+    .catch((err) => {
+      toggleSpinner()
+      const userDiv = document.querySelector('#user')
+      if (userDiv) {
+        userDiv.innerHTML = `
+        <p class="text-xl text-center text-red-500 mb-5">
+        ${err}</p>`
+      }
     })
 }
 
