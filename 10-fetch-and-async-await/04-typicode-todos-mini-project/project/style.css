@@ -18,7 +18,7 @@ header {
   margin-bottom: 20px;
 }
 
-button {
+button[type='submit'] {
   padding: 10px;
   background: salmon;
   color: white;
@@ -56,4 +56,44 @@ input[type='text']:focus {
 
 .done {
   background-color: #ccc;
+}
+/* ---------------------------------------- */
+
+.btn-link {
+  font-size: 16px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.text-red {
+  color: red;
+}
+
+.items {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.items li {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 0 5px 20px;
+  font-weight: 700;
+}
+
+.items li button {
+  margin-left: 5dvb;
+}
+
+@media (max-width: 500px) {
+  .items li {
+    width: 100%;
+  }
 }
