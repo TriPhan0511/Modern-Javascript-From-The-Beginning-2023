@@ -1,6 +1,6 @@
 function fetchUser() {
   toggleSpinner()
-  fetch('https://random-data-api.com/api/v2/users2')
+  fetch('https://random-data-api.com/api/v2/users')
     .then((res) => {
       if (!res.ok) {
         throw new Error('Request Failed.')

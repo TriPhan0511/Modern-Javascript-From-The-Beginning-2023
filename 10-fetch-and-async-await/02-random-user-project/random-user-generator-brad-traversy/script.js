@@ -1,10 +1,24 @@
 function fetchUser() {
   showSpinner()
   fetch('https://random-data-api.com/api/v2/users')
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Request Failed.')
+      }
+      return res.json()
+    })
     .then((user) => {
       hideSpinner()
       displayUser(user)
+    })
+    .catch((err) => {
+      toggleSpinner()
+      const userDisplay = document.querySelector('#user')
+      if (userDisplay) {
+        userDisplay.innerHTML = `
+        <p class="text-xl text-center text-red-500 mb-5">
+        ${err}</p>`
+      }
     })
 }
 
