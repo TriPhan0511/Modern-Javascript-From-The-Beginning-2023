@@ -1,34 +1,44 @@
-// NOTE:
-// Use Object.cerate() as an alternate way of creating multiple objects.
-
-const rectanglePrototypes = {
-  area: function () {
-    return this.width * this.height
-  },
-  perimeter: function () {
-    return 2 * (this.width + this.height)
-  },
-  isSquare: function () {
-    return this.width === this.height
-  },
+function Shape(name) {
+  this.name = name
 }
 
-function createRectangle(height, width) {
-  return Object.create(rectanglePrototypes, {
-    height: {
-      value: height,
-    },
-    width: {
-      value: width,
-    },
-  })
+Shape.prototype.logName = function () {
+  console.log(`Shape Name: ${this.name}`)
 }
 
-const rect = createRectangle(10, 20)
-console.log(rect)
-console.log(rect.area())
-console.log(rect.perimeter())
-console.log(rect.isSquare())
+function Rectangle(name, height, width) {
+  Shape.call(this, name)
+  this.height = height
+  this.width = width
+}
 
-const rect2 = createRectangle(5, 15)
-console.log(rect2.area())
+// Inherits Shape prototypes
+Rectangle.prototype = Object.create(Shape.prototype)
+
+// Override the `logName()` method
+Rectangle.prototype.logName = function () {
+  console.log(`Rectangle Name: ${this.name}`)
+}
+
+function Circle(name, radius) {
+  Shape.call(this, name)
+  this.radius = radius
+}
+
+// Inherits Shape prototypes
+Circle.prototype = Object.create(Shape.prototype)
+
+// Set prototype constructors
+Rectangle.prototype.constructor = Rectangle
+Circle.prototype.constructor = Circle
+
+const rect = new Rectangle('Rectangle 1', 20, 20)
+const cir = new Circle('Circle 1', 30)
+
+console.log(rect, cir)
+
+rect.logName()
+cir.logName()
+
+// console.log(rect.constructor)
+// console.log(cir.constructor)
