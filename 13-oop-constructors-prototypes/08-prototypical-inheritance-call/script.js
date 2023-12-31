@@ -1,11 +1,14 @@
+// Shape constructor
 function Shape(name) {
   this.name = name
 }
 
+// Add a method into Shape prototype
 Shape.prototype.logName = function () {
   console.log(`Shape Name: ${this.name}`)
 }
 
+// Rectangle constructor
 function Rectangle(name, height, width) {
   Shape.call(this, name)
   this.height = height

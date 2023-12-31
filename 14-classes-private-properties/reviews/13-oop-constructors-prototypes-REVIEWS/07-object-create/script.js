@@ -13,22 +13,19 @@ const rectanglePrototypes = {
   },
 }
 
-function createRectangle(height, width) {
+function createRectangle(width, height) {
   return Object.create(rectanglePrototypes, {
-    height: {
-      value: height,
-    },
     width: {
       value: width,
+    },
+    height: {
+      value: height,
     },
   })
 }
 
-const rect = createRectangle(10, 20)
-console.log(rect)
-console.log(rect.area())
-console.log(rect.perimeter())
-console.log(rect.isSquare())
+const rect1 = createRectangle(10, 20)
 
-const rect2 = createRectangle(5, 15)
-console.log(rect2.area())
+console.log(rect1.area())
+console.log(rect1.perimeter())
+console.log(rect1.isSquare())

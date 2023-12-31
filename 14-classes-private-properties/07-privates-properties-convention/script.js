@@ -30,7 +30,7 @@ class Wallet {
     console.log(`Withdrawing ${amount}`)
     this._transactions.push({
       type: 'withdraw',
-      amout: amount,
+      amount,
     })
   }
 
